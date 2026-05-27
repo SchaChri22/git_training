@@ -11,6 +11,11 @@
 - Branching und Merging
 - Sicherung
 
+## Arten von Versionsverwaltungssystemen
+- Zentralisierte Systeme (Bsp. SVN)
+- Verteilte Versionskontrolle (GIT)
+- Cloud- basierte Plattformen (GitHub, GitLab, BitBucket)
+
 - installation unter:
 
 https://git-scm.com/install/windows
