@@ -1,5 +1,9 @@
-const getButton = document.querySelector('#IDgetButton');
-const getInput = document.querySelector('#idInput');
+import { application } from "express";
+
+const getButton = document.querySelector('#IdGetButton');
+const getOutput = document.querySelector('#idOutput');
+const postButton = document.querySelector('#IdPostButton');
+const postInput = document.querySelector('#idInput');
 
 async function getMessage(){
     try {
@@ -9,7 +13,7 @@ async function getMessage(){
         throw new Error(`Http Fehler: ${res.status}`);
     }
         const response = await res.json();
-        getInput.value = response.message;
+        getOutput.value = response.message;
 
         console.log("Server antwortet: ", response.message);
     }
@@ -20,3 +24,21 @@ async function getMessage(){
 };
 
 getButton.addEventListener("click", getMessage);
+
+
+async function sendMessage(){
+    const res = await fetch("http://localhost:3000/message", ´{
+        method: "POST",
+        headers: {
+            "Contend-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: "Hallo Server!"
+        })
+    });
+
+    const data = await res.json();
+    console.log(data);
+};
+
+postButton.addEventListener("click", sendMessage);
