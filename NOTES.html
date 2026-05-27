@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Git Anleitung</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;dark&quot;,&quot;lightModeTheme&quot;:&quot;default&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 id="git-anleitung">Git Anleitung</h1>
+<h2 id="versionsverwaltungssystem-vcs">Versionsverwaltungssystem VCS</h2>
+<ul>
+<li>Ein VSC verfolgt und verwaltet Änderungen an Dateien und Datensätzen</li>
+<li>es ist vor allem bei komplexen Projekten mit mehreren Teammitgliedern unentbehrlich</li>
+</ul>
+<h2 id="vorteile-eines-vcs">Vorteile eines VCS</h2>
+<ul>
+<li>Rückverfolgbarkeit</li>
+<li>Fehlerückverfolgung</li>
+<li>Kollaboration</li>
+<li>Branching und Merging</li>
+<li>Sicherung</li>
+</ul>
+<h2 id="arten-von-versionsverwaltungssystemen">Arten von Versionsverwaltungssystemen</h2>
+<ul>
+<li>
+<p>Zentralisierte Systeme (Bsp. SVN)</p>
+</li>
+<li>
+<p>Verteilte Versionskontrolle (GIT)</p>
+</li>
+<li>
+<p>Cloud- basierte Plattformen (GitHub, GitLab, BitBucket)</p>
+</li>
+<li>
+<p>installation unter:</p>
+</li>
+</ul>
+<p><a href="https://git-scm.com/install/windows">https://git-scm.com/install/windows</a></p>
+<p><strong>Lokales und remote Repository anlegen</strong></p>
+<pre><code class="language-js"><span class="hljs-comment">// konfiguration</span>
+git config --<span class="hljs-variable language_">global</span> user.<span class="hljs-property">name</span> <span class="hljs-string">&quot;Dein Name&quot;</span>
+git config --<span class="hljs-variable language_">global</span> user.<span class="hljs-property">email</span> <span class="hljs-string">&quot;deine.email@example.com&quot;</span>
+
+<span class="hljs-comment">// kontrolle der Eingaben</span>
+git config --list
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">// im terminal ein lokales Repo anlegen</span>
+git init
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">// lokale Repo- Kopie an GitHub senden</span>
+
+
+<span class="hljs-comment">// alles bisherige in staging Area bringen</span>
+git add .
+<span class="hljs-comment">// erster initial Commit</span>
+git commit -m 
+
+
+<span class="hljs-comment">// Verbindung herstellen</span>
+git remote add origin <span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/dein-benutzername/mein-projekt.git</span>
+<span class="hljs-comment">// Verbindung prüfen</span>
+git remote -v
+<span class="hljs-comment">// upstream setzen</span>
+git push --set-upstream origin master
+
+<span class="hljs-comment">// ein Repository klonen</span>
+git clone <span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/dein-benutzername/</span>
+</code></pre>
+<p><strong>Zusammenarbeiten in git</strong></p>
+<pre><code class="language-js"><span class="hljs-comment">// neuer Sidebranch</span>
+git checkout -b branch-name
+
+<span class="hljs-comment">// welchen branch verwende ich</span>
+git branch
+
+<span class="hljs-comment">// wechsel in mein-branch</span>
+git checkout main
+
+<span class="hljs-comment">// merge von sidebranch in mainbranch</span>
+git merge branch-name
+
+<span class="hljs-comment">// löscht sidebranch nach merge</span>
+git branch -d branch-name
+
+<span class="hljs-comment">// löscht sidebranch ohne merge</span>
+git branch -D branch-name
+
+
+<span class="hljs-comment">// merge Konflikt</span>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; <span class="hljs-variable constant_">HEAD</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Version aus main&#x27;</span>)
+=======
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Version aus feature-branch&#x27;</span>)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch
+</code></pre>
+<h2 id="beispiel">Beispiel</h2>
+<p>app.js</p>
+<pre><code class="language-js"><span class="hljs-comment">// app.js</span>
+
+<span class="hljs-comment">// DOM Elemente</span>
+<span class="hljs-keyword">const</span> getButton = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#IdGetButton&#x27;</span>);
+<span class="hljs-keyword">const</span> getOutput = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#idOutput&#x27;</span>);
+<span class="hljs-keyword">const</span> postButton = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#IdPostButton&#x27;</span>);
+<span class="hljs-keyword">const</span> postInput = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#idInput&#x27;</span>);
+
+<span class="hljs-comment">// GET fetch</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getMessage</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;http://localhost:3000/message&quot;</span>);
+
+    <span class="hljs-keyword">if</span> (!res.<span class="hljs-property">ok</span>){
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">`Http Fehler: <span class="hljs-subst">${res.status}</span>`</span>);
+    }
+        <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();
+        getOutput.<span class="hljs-property">value</span> = response.<span class="hljs-property">message</span>;
+
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Server antwortet: &quot;</span>, response.<span class="hljs-property">message</span>);
+    }
+    <span class="hljs-keyword">catch</span> (error){
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;Fehler beim Abrufen:&quot;</span> , error.<span class="hljs-property">message</span>);;
+    };
+    
+};
+
+<span class="hljs-comment">// POST fetch</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">sendMessage</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;http://localhost:3000/message&quot;</span>, {
+        <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+        <span class="hljs-attr">headers</span>: {
+            <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>
+        },
+        <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({
+            <span class="hljs-attr">message</span>: postInput.<span class="hljs-property">value</span>
+        })
+    });
+
+    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);
+};
+
+<span class="hljs-comment">// EVENT für POST fetch</span>
+postButton.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;click&quot;</span>, sendMessage);
+
+<span class="hljs-comment">// EVENT für GET fetch</span>
+getButton.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;click&quot;</span>, getMessage);
+</code></pre>
+<p>server.js</p>
+<pre><code class="language-js"><span class="hljs-keyword">import</span> express <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;express&quot;</span>;
+<span class="hljs-keyword">import</span> cors <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;cors&quot;</span>;
+
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>();
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">PORT</span> = <span class="hljs-number">3000</span>;
+
+<span class="hljs-comment">// Middleware</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-title function_">cors</span>());
+app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">json</span>());
+
+<span class="hljs-comment">// GET</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/message&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+        res.<span class="hljs-title function_">status</span>(<span class="hljs-number">200</span>).<span class="hljs-title function_">json</span>({
+            <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Hier ist meine Nachricht&quot;</span>,
+            <span class="hljs-attr">success</span>: <span class="hljs-literal">true</span>
+        });
+    });
+
+<span class="hljs-comment">// POST</span>
+app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/message&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req,res</span>) =&gt;</span> {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> message = req.<span class="hljs-property">body</span>;
+
+        <span class="hljs-comment">// Falls keine Nachricht ankommt</span>
+        <span class="hljs-keyword">if</span> (!message) {
+            <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">400</span>).<span class="hljs-title function_">json</span>({
+                <span class="hljs-attr">success</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;message fehlt im Request Body&quot;</span>
+            });
+        }
+        
+        <span class="hljs-comment">// Nachricht erfolgreich angekommen</span>
+        res.<span class="hljs-title function_">status</span>(<span class="hljs-number">201</span>).<span class="hljs-title function_">json</span>({
+            <span class="hljs-attr">success</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Nachricht empfangen&quot;</span>,
+            <span class="hljs-attr">data</span>: {
+                <span class="hljs-attr">receivedMessage</span>: message,
+                <span class="hljs-attr">timestamp</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">toISOString</span>()
+            }
+        })
+    }
+
+    <span class="hljs-comment">// falls Server Fehler vorliegt</span>
+    <span class="hljs-keyword">catch</span> (error) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+
+        res.<span class="hljs-title function_">status</span>(<span class="hljs-number">500</span>).<span class="hljs-title function_">json</span>({
+            <span class="hljs-attr">success</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;Internal Server Error&quot;</span>
+        });
+    }
+});
+
+<span class="hljs-comment">// PortListener</span>
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable constant_">PORT</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Server läuft auf PORT 3000&quot;</span>);
+});
+</code></pre>
+<p>index.html</p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;app.js&quot;</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;IdGetButton&quot;</span>&gt;</span>GET Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;idOutput&quot;</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;GET Nachricht&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;IdPostButton&quot;</span>&gt;</span>POST Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;idInput&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;POST Nachricht&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

@@ -21,6 +21,7 @@ app.post("/message", (req,res) => {
     try {
         const message = req.body;
 
+        // Falls keine Nachricht ankommt
         if (!message) {
             return res.status(400).json({
                 success: false,
@@ -28,6 +29,7 @@ app.post("/message", (req,res) => {
             });
         }
         
+        // Nachricht erfolgreich angekommen
         res.status(201).json({
             success: true,
             message: "Nachricht empfangen",
@@ -37,6 +39,8 @@ app.post("/message", (req,res) => {
             }
         })
     }
+
+    // falls Server Fehler vorliegt
     catch (error) {
         console.error(error);
 
@@ -47,12 +51,6 @@ app.post("/message", (req,res) => {
     }
 });
 
-// 404 Handler (wichtig!)
-app.use((req, res) => {
-    res.status(404).json({
-        error: "Route nicht gefunden"
-    });
-});
 // PortListener
 app.listen(PORT, () => {
     console.log("Server läuft auf PORT 3000");

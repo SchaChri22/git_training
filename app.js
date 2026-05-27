@@ -1,8 +1,12 @@
+// app.js
+
+// DOM Elemente
 const getButton = document.querySelector('#IdGetButton');
 const getOutput = document.querySelector('#idOutput');
 const postButton = document.querySelector('#IdPostButton');
 const postInput = document.querySelector('#idInput');
 
+// GET fetch
 async function getMessage(){
     try {
         const res = await fetch("http://localhost:3000/message");
@@ -21,9 +25,7 @@ async function getMessage(){
     
 };
 
-getButton.addEventListener("click", getMessage);
-
-
+// POST fetch
 async function sendMessage(){
     const res = await fetch("http://localhost:3000/message", {
         method: "POST",
@@ -39,4 +41,8 @@ async function sendMessage(){
     console.log(data);
 };
 
+// EVENT für POST fetch
 postButton.addEventListener("click", sendMessage);
+
+// EVENT für GET fetch
+getButton.addEventListener("click", getMessage);
