@@ -1,4 +1,4 @@
-import express, { application } from "express";
+import express from "express";
 import cors from "cors";
 
 const app = express();
@@ -19,14 +19,21 @@ app.get("/message", (req, res) => {
 // POST
 app.post("/message", (req,res) => {
     try {
-        const { message } = req.body;
+        const message = req.body;
+
+        if (!message) {
+            return res.status(400).json({
+                success: false,
+                error: "message fehlt im Request Body"
+            });
+        }
         
         res.status(201).json({
             success: true,
             message: "Nachricht empfangen",
             data: {
                 receivedMessage: message,
-                timestamp: new Date().toISOString();
+                timestamp: new Date().toISOString()
             }
         })
     }
